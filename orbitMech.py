@@ -9,8 +9,8 @@ class Orbit:
 
 
         self.parentBody = pbody
-        self.apoapsis = self.parentBody.radius + ap
-        self.periapsis = self.parentBody.radius + pe
+        self.apoapsis = ap
+        self.periapsis = pe
         self.gravitation = 6.67 * 10 ** (-11)
         self.semiMajorAxis = (self.apoapsis + self.periapsis) / 2
         if self.periapsis == self.apoapsis:
@@ -20,13 +20,10 @@ class Orbit:
 
     def getVel(self,altitude):
         """ Gets the velocity for a certain altitude in the orbit
-        altitude is in m above surface"""
+        altitude is in m from parent body CoM"""
 
-        #TODO: Check pe<alt<ap
         #TODO: Implement getVelCirc into this function
-        radi = altitude + self.parentBody.radius
-        v = math.sqrt(self.gravitation * self.parentBody.mass * (2 / radi - 1 / self.semiMajorAxis))
-        return v
+        return math.sqrt(self.gravitation * self.parentBody.mass * (2 / altitude - 1 / self.semiMajorAxis))
 
     def getVelCirc(self):
         if self.circular:
@@ -44,16 +41,15 @@ class Hoffman:
         self.transfer = Orbit(target,origin,pbody)
 
     def h1deltaV(self):
-        deltaV = self.transfer.getVel(self.transfer.periapsis) - self.origin.getVelCirc()
-        return deltaV
-
+        return self.transfer.getVel(self.transfer.periapsis) - self.origin.getVelCirc()
+        
     def h2deltaV(self):
-        deltaV = self.target.getVelCirc() - self.transfer.getVel(self.transfer.apoapsis)
-        return deltaV
-
+        return self.target.getVelCirc() - self.transfer.getVel(self.transfer.apoapsis)
+        
     def deltaVtotal(self):
-        deltaV = self.h1deltaV() + self.h2deltaV()
-        return deltaV
-
+        return self.h1deltaV() + self.h2deltaV()
+        
     #TODO: Time in transfer orbit (h1 to h2)
+    def hDeltaT(self):
+        return math.pi * math.sqrt( self.transfer.semiMajorAxis ** 3 / (self.transfer.gravitation * self.transfer.parentBody.mass) )
     #TODO: Target burn angle, (needs to implement angle position in Orbit class
