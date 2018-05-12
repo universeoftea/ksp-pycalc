@@ -18,19 +18,14 @@ class Orbit:
         else:
             self.circular = False
 
-    def getVel(self,altitude):
+    def getVel(self,altitude=None):
         """ Gets the velocity for a certain altitude in the orbit
         altitude is in m from parent body CoM"""
+        if altitude == None:
+            altitude = self.periapsis
 
-        #TODO: Implement getVelCirc into this function
         return math.sqrt(self.gravitation * self.parentBody.mass * (2 / altitude - 1 / self.semiMajorAxis))
 
-    def getVelCirc(self):
-        if self.circular:
-            v = math.sqrt(self.gravitation * self.parentBody.mass * (1 / self.semiMajorAxis))
-            return v
-        else:
-            return "Orbit is not circular"
 
 class Hoffman:
 
