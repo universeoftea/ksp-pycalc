@@ -44,7 +44,6 @@ class Hoffman:
     def deltaVtotal(self):
         return self.h1deltaV() + self.h2deltaV()
         
-    #TODO: Time in transfer orbit (h1 to h2)
-    def hDeltaT(self):
+    def deltaT(self):
         return math.pi * math.sqrt( self.transfer.semiMajorAxis ** 3 / (self.transfer.gravitation * self.transfer.parentBody.mass) )
     #TODO: Target burn angle, (needs to implement angle position in Orbit class
