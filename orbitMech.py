@@ -30,15 +30,18 @@ class Orbit:
 class Hoffman:
 
     def __init__(self,origin,target,pbody):
+        #TODO origin and target should be objects of type Orbit
 
         self.origin = Orbit(origin,origin,pbody)
         self.target = Orbit(target,target,pbody)
         self.transfer = Orbit(target,origin,pbody)
 
     def h1deltaV(self):
+        """ Velocity change at origin orbit to get to transfer orbit """
         return self.transfer.getVel(self.transfer.periapsis) - self.origin.getVelCirc()
         
     def h2deltaV(self):
+        """ Velocity change to get from transfer orbit to target orbit """
         return self.target.getVelCirc() - self.transfer.getVel(self.transfer.apoapsis)
         
     def deltaVtotal(self):
