@@ -1,27 +1,52 @@
 Name: Kerbol
-Kerbol Radius:261600000
-Kerbol Mass:1.7565459e+28
+Radius:261600000
+Mass:1.7565459e+28
+;
 Name: Moho
-Moho Radius:250000
-Moho Mass:2.5263314e+21
+Radius:250000
+Mass:2.5263314e+21
+Apoapsis:6315765981
+Periapsis:4210510628
+;
 Name: Eve
-Eve Radius:700000
-Eve Mass:1.224398e+23
+Radius:700000
+Mass:1.224398e+23
+Apoapsis:9931011387
+Periapsis:9734357701
+;
 Name: Gilly
-Gilly Radius:13000
-Gilly Mass:1.2420363e+17
+Radius:13000
+Mass:1.2420363e+17
+Apoapsis:48825000
+Periapsis:14175000
+;
 Name: Kerbin
-Kerbin Radius:600000
-Kerbin Mass:5.2915158e+22
+Radius:600000
+Mass:5.2915158e+22
+Apoapsis:13599840256
+Periapsis:13599840256
+;
 Name: Mun
-Mun Radius:200000
-Mun Mass:9.7599066e+20
+Radius:200000
+Mass:9.7599066e+20
+Apoapsis:12000000
+Periapsis:12000000
+;
 Name: Minmus
-Minmus Radius:60000
-Minmus Mass:2.645758e+19
+Radius:60000
+Mass:2.645758e+19
+Apoapsis:47000000
+Periapsis:47000000
+;
 Name: Duna
-Duna Radius:320000
-Duna Mass:4.515427e+21
+Radius:320000
+Mass:4.515427e+21
+Apoapsis:21783189163
+Periapsis:19669121365
+;
 Name: Ike
-Ike Radius:130000
-Ike Mass:2.7821615e+20
+Radius:130000
+Mass:2.7821615e+20
+Apoapsis:3296000
+Periapsis:3104000
+;
